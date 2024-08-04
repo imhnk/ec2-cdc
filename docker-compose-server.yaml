@@ -2,7 +2,7 @@ version: "3.8"
 
 services:
   website:
-    image: imhnk/crawler-website-lab
+    image: imhnk/crawler-website-lab:2024-08-03
     container_name: website
     ports:
       - "3100:80"

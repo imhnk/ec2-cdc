@@ -4,7 +4,7 @@ runcmd:
   - curl -fsSL https://get.docker.com/ | sh
   - sudo usermod -aG docker ubuntu
   - cd /home/ubuntu
-  - git clone https://github.com/hero2510/200lab-ec2-cdc.git && cd 200lab-ec2-cdc
+  - git clone https://github.com/imhnk/ec2-cdc.git && cd ec2-cdc
   - docker compose -f docker-compose-server.yaml down
   - docker network create crawler
   - docker compose -f docker-compose-server.yaml up -d
@@ -20,8 +20,8 @@ runcmd:
   - |
     PUBLIC_IP=$(curl -s http://checkip.amazonaws.com)
     sed -i 's|localhost|'$${PUBLIC_IP}'|g' ./website/.env
-    # docker build ./website -t hero2510/crawler-website
-    # docker run --net crawler -p 3100:80 hero2510/crawler-website
+    # docker build ./website -t imhnk/crawler-website-lab:2024-08-03
+    docker run --net crawler -p 3100:80 imhnk/crawler-website-lab:2024-08-03
 
 packages:
   - git
